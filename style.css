@@ -164,7 +164,7 @@ border: 0px;
 
 
 
-@media screen and (min-width:600px) and (max-width:1199px){
+@media screen and (max-width:1200px) and (min-width: 600px){
     #second_section{
         width: 90%;
         grid-template-rows: repeat(5,auto);
@@ -202,7 +202,7 @@ border: 0px;
     
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 600px) {
     #second_section{
         width: 90%;
         display: flex;
