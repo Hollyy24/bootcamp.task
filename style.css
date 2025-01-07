@@ -91,7 +91,7 @@ border: 0px;
     grid-template-rows: repeat(3 auto);
     grid-template-columns: repeat(6 auto);
     gap: 20px;
-    margin: 0 auto;
+    margin: 20px auto ;
 } 
 
 
@@ -245,5 +245,12 @@ border: 0px;
         display: block;
     }
     
+    #first_section h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        font-size: 1.3rem;
+    }
 }
 
