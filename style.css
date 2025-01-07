@@ -202,7 +202,7 @@ border: 0px;
     
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (min-width: 360px) {
     #second_section{
         width: 90%;
         display: flex;
