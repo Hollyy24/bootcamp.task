@@ -71,15 +71,18 @@ border: 0px;
 #first_section{
     height: 250px;
     background-color:rgba(163, 196, 230,1);
-    margin: 0px;
+    margin: 0px auto;
 }
 
 #first_section h1{
     display: flex;
     justify-content: center;
+    margin: 0px auto;
     align-items: center;
     height:100%;
     font-size: 2rem;
+    white-space: normal;
+    text-align: center;
 }
 
 
@@ -136,6 +139,8 @@ border: 0px;
 
 
 #promotion1,#promotion2,#promotion3{
+    text-align: center;
+    white-space: pre-wrap;
     grid-column: auto /span 2;
     grid-row:1/2;
 }
@@ -174,9 +179,11 @@ border: 0px;
         gap: 20px;
         margin-top:30px;
     }
-    #promotion1,#promotion12{
+    #promotion1,#promotion2{
+        text-align: center;
         grid-column: auto/ span 2;
         grid-row:1/2;
+
     }
         
     
@@ -248,13 +255,18 @@ border: 0px;
     .is_active{
         display: block;
     }
+
     
     #first_section h1{
         display: flex;
         justify-content: center;
+        margin: 0px auto;
         align-items: center;
         height:100%;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        text-align: center;
     }
+
+
 }
 
