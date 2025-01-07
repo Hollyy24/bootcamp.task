@@ -167,7 +167,7 @@ header{
 
 
 
-@media screen and (max-windth:1200px){
+@media screen and (max-width:1200px)and(min-width:600px){
     #second_section{
         width: 90%;
         grid-template-rows: repeat(5,auto);
