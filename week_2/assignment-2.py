@@ -19,19 +19,18 @@ def find_and_print(messages, current_station):
                 people_and_station[person] = station
                 break
 
-
     for person,station in people_and_station.items():
         people.append(person)
         if station == "Xiaobitan":
             if current_station != "Xiaobitan":
-                number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index("Qizhang")+1)  
+                number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index("Qizhang"))+1 
                 distance.append(number)
             else:
-                number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index(station))  
+                number = 0
                 distance.append(number)
         else:
             if current_station == "Xiaobitan":
-                number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index("Qizhang")+1)  
+                number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index("Qizhang"))+1  
                 distance.append(number)
             else:
                 number = abs(SongShan_Xindian.index(current_station)-SongShan_Xindian.index(station))  
@@ -57,6 +56,7 @@ find_and_print(messages,"Songshan") # print Copper
 find_and_print(messages,"Qizhang") # print Leslie
 find_and_print(messages,"Ximen") # print Bob
 find_and_print(messages,"Xindian City Hall") # print Vivian
+find_and_print(messages,"Dapinglin") #print Mary
 
 
 

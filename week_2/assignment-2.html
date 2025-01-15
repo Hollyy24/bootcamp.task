@@ -37,17 +37,17 @@
 
             if (station === "Xiaobitan") {
                 if (currentStation !== "Xiaobitan") {
-                    number = Math.abs(songShanXindian.indexOf(currentStation) - songShanXindian.indexOf("Qizhang") + 1);
+                    number = Math.abs(songShanXindian.indexOf(currentStation) - songShanXindian.indexOf("Qizhang"))+1;
                     distance.push(number);
                 }
                 else {
-                    number = Math.abs(songShanXindian.indexOf(currentStation) - songShanXindian.indexOf(station));
+                    number = 0;
                     distance.push(number);
                 };
             }
             else {
                 if (currentStation === "Xiaobitan") {
-                    number = Math.abs(songShanXindian.indexOf(currentStation) - songShanXindian.indexOf("Qizhang") + 1);
+                    number = Math.abs(songShanXindian.indexOf(currentStation) - songShanXindian.indexOf("Qizhang"))+1;
                     distance.push(number);
                 }
                 else {
@@ -76,6 +76,7 @@
     findAndPrint(messages, "Qizhang"); // print Leslie
     findAndPrint(messages, "Ximen"); // print Bob
     findAndPrint(messages, "Xindian City Hall"); // print Vivian
+    findAndPrint(messages,"Dapinglin") // print Mary
 
 
 
