@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link href="{{ url_for('static',path='./styles.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav><h1>歡迎光臨，請輸入帳號密碼</h1></nav>
+    <form id="signinform" action="/signin" method="POST">
+        <p><strong>登入系統</strong></p>
+        <label for="account">帳號:</label><input type="text" name="username" id="account"><br />
+        <label for="password">密碼:</label><input type="text" name="password" id="password"><br />
+        <label for="checkbox">同意條款</label><input id=checkbox type="checkbox"><br>
+        <button type="submit" id="submit"> 登入 </button>
+    </form>
+    <hr>
+    <form id="squreform" >
+        <p><strong>計算正整數的平方</strong></p>
+        <label for="number">正整數:</label>
+        <input type="text" name="number" id="number"><br />
+        <button type="submit" id="calculate"> 計算 </button>
+    </form>
+</body>
+
+<script>
+    const signIn = document.querySelector("#signinform");
+    const checkBox = document.querySelector("#checkbox");
+    const number = document.querySelector("#number");
+    const calculate = document.querySelector("#calculate");
+
+    signIn.addEventListener("submit",function(event){
+        if ( checkBox.checked === false){
+            event.preventDefault();
+            alert("Please check the checkbox first");
+        }
+    });
+
+    number.addEventListener("input",function(event){
+        const numberValue = Number(number.value);
+        if (Number.isInteger(numberValue) === false || numberValue < 0){
+            number.value = "";
+            alert("Please enter a positive number");
+        }
+    })
+
+    calculate.addEventListener("click",function(event){
+        const numberValue = Number(number.value);
+        if (Number.isInteger(numberValue) === false || numberValue < 0){
+            event.preventDefault();
+            number.value = "";
+            alert("Please enter a positive number");
+            
+        }
+        if (Number.isInteger(numberValue) === true && numberValue >= 0){
+            event.preventDefault();
+            window.location.replace(`/square/${numberValue}`);
+        }
+    })
+
+
+</script>
+</html>
