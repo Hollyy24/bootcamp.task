@@ -55,7 +55,6 @@ async def error(request:Request,message:str):
 @app.get("/signout",response_class=HTMLResponse)
 async def signout(request:Request):
     request.session["sign-in"] = False
-    print(request.session.get("user"))
     return RedirectResponse(url="/",status_code=303)
 
 
