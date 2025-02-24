@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static',path='./styles.css')}}" rel="stylesheet">
+    <title>首頁</title>
+</head>
+<body>
+    <nav><h1>歡迎光臨，請註冊登入系統</h1></nav>
+    <main >
+        <form id = "signup-form" action="/signup" method="POST">
+            <h2>註冊帳號</h2>
+            <label for="signup-name">姓名</label>
+            <input id="signup-name" type="text" name="name"><br>
+            <label for="signup-username">帳號</label>
+            <input id="signup-username" type="text" name="username"><br>
+            <label for="signup-password">密碼</label>
+            <input id="signup-password" type="password" name="password"><br>
+            <button type="submit">註冊</button>
+        </form>
+        <hr id="index-hr">
+        <form id="signin-form" action="/signin" method="POST">
+            <h2>登入系統</h2>
+            <label for="signin-username" >帳號</label>
+            <input id="signin-username" type="text" name="username"><br>
+            <label for="signin-password">密碼</label>
+            <input id="signin-password" type="password" name="password" ><br>
+            <button type="submit">登入</button>
+        </form>
+    </main>
+</body>
+<script>
+    const signUp = document.querySelector("#signup-form");
+    const signUpName = document.querySelector("#signup-name");
+    const signUpUserName = document.querySelector("#signup-username");
+    const signUpPassword = document.querySelector("#signup-password");
+
+    const signIn = document.querySelector("#signin-form");
+    const signInUserName = document.querySelector("#signin-username");
+    const signInPassword = document.querySelector("#signin-password");
+
+    signUp.addEventListener("submit",function(event){
+        if (signUpName.value.trim() === ""  || signUpUserName.value.trim() ===""  || signUpPassword.value.trim() === ""){
+            event.preventDefault();
+            alert("請勿空白");
+        }
+    })
+    
+    signIn.addEventListener("submit",function(event){
+        if (signInUserName.value.trim() === ""  || signInPassword.value.trim() ===""){
+            event.preventDefault();
+            alert("請勿空白");
+        }
+    })
+
+
+
+</script>
+</html>
