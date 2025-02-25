@@ -123,35 +123,42 @@ async def signout(request:Request):
 @app.get("/api/member")
 async def search(request:Request, username: str = Query(...)):
     print("Here is search")
-    mycursor = mydb.cursor(dictionary=True)
-    mycursor.execute("SELECT * FROM member WHERE username = %s",(username,))
-    myresult = mycursor.fetchone()
-    if myresult:
-        data = {"id":myresult["id"],
-                "name":myresult["name"],
-                "username":myresult["username"]}
+    if request.session.get("sign-in") == True:
+        mycursor = mydb.cursor(dictionary=True)
+        mycursor.execute("SELECT * FROM member WHERE username = %s",(username,))
+        myresult = mycursor.fetchone()
+        if myresult:
+            data = {"id":myresult["id"],
+                    "name":myresult["name"],
+                    "username":myresult["username"]}
+        else:
+            data = None   
     else:
-        data = None    
+        data = None 
     return JSONResponse(content={"data":data})
 
 
 @app.patch("/api/member")
 async def update_name(request:Request,newname :Newname):
     print("Here is patch")
-    username = request.session.get("username")
-    mycursor = mydb.cursor(dictionary=True)
-    mycursor.execute("UPDATE member SET name = %s WHERE username =%s ",(newname.newname,username,))
-    print(f"username:{username}, newname: {newname.newname}")
-    try:
-        mydb.commit()
-        result = {"ok":True}
-    except Exception as e:
+    if request.session.get("sign-in") == True:
+        username = request.session.get("username")
+        mycursor = mydb.cursor(dictionary=True)
+        mycursor.execute("UPDATE member SET name = %s WHERE username =%s ",(newname.newname,username,))
+        print(f"username:{username}, newname: {newname.newname}")
+        try:
+            mydb.commit()
+            result = {"ok":True}
+        except Exception as e:
+            result = {"error":True}
+        finally:
+            mycursor.close()
+    else:
         result = {"error":True}
-    finally:
-        mycursor.close()
+        
     return JSONResponse(content=result)
 
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=3000)
